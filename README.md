@@ -1,87 +1,25 @@
-# Game Jolt
+# gamejolt
 
-This is the whole frontend for Game Jolt. It powers the site and the desktop app.
+本仓库是「gamejolt」的安卓版本获取入口，附使用资料索引。
 
-We wanted to make it open source so everyone can get visibility into what we are working on. Browse the code to see how Game Jolt is put together. Feel free to offer suggestions on how to do things better, as well as contributing your own code. I'll get a better guide on how to contribute soon.
+## 安装文件资源（夸克网盘）
 
-### Requirements
+> **gamejolt 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/d570674498a4](https://pan.quark.cn/s/d570674498a4)
 
-- Install NodeJS v16+
-- Install Yarn v1
-- Run in terminal:
-  - `git submodule init`
-  - `git submodule update`
-  - `yarn`
-- Install git pre commit hooks:
-  - **Windows** (from administrator powershell)**:** `.\git-hooks\install.ps1`
-  - **Mac / Linux:** `./git-hooks/install.sh`
-- Add `127.0.0.1 development.gamejolt.com` to your `/etc/hosts` (or `C:\\Windows\\System32\\drivers\\etc\\hosts` on Windows)
-- Setup local development certificates.
-  - **Windows:**
-    1. Run `scripts\certs\generate-cert.ps1`.
-    2. Open `gamejoltCA.crt` file it generated.
-    3. Press "Install certificate" button.
-    4. For "Store Location" leave it as "Current User" and hit "Next".
-    5. Choose "Place all certificates in the following store" and hit "Browse"
-    6. Choose "Trusted Root Certification Authorities" and hit "Ok"
-    7. Restart your browser for changes to take effect.
-  - **Linux:**
-    1. Run `./scripts/certs/generate-cert.sh`
-    2. Add the cert to the local trust
-    - _On Ubuntu/Debian_:
-      ```
-      sudo cp gamejoltCA.crt /usr/local/share/ca-certificates/gamejoltCA.crt
-      sudo update-ca-certificates
-      ```
-    - _On RHEL/Centos/Fedora_:
-      ```
-      sudo cp gamejoltCA.crt /etc/pki/ca-trust/source/anchors/gamejoltCA.crt
-      sudo update-ca-trust extract
-      ```
-    - _On Arch_:
+## 官方项目
 
-      ```
-      sudo cp gamejoltCA.crt /etc/ca-certificates/trust-source/anchors/gamejoltCA.crt
-      sudo trust extract-compat
-      trust list | grep -i "Game Jolt Dev CA"
-      ```
+- 上游项目：[gamejolt/gamejolt](https://github.com/gamejolt/gamejolt)
 
-  - **Mac:** TODO
+## 更多资料
 
-### Running
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [创作者发布作品与收益](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E5%88%9B%E4%BD%9C%E8%80%85%E5%8F%91%E5%B8%83%E4%BD%9C%E5%93%81%E4%B8%8E%E6%94%B6%E7%9B%8A.md)
+- [常见问题与故障排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5.md)
+- [收不到推送通知怎么办](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E6%94%B6%E4%B8%8D%E5%88%B0%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
+- [新手使用指南](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E6%96%B0%E6%89%8B%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
+- [注册与登录账号](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/gamejolt/%E6%B3%A8%E5%86%8C%E4%B8%8E%E7%99%BB%E5%BD%95%E8%B4%A6%E5%8F%B7.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
-- **Website**
+---
 
-  Run `yarn dev` in the project directory.
-
-  It'll set up a tiny server that hosts the website for you on your computer at https://development.gamejolt.com. Open that URL up in a web browser and you should have Game Jolt running!
-  - Mac users will also have to forward traffic from port 8443 to 443 to get around a security restriction (see note below)
-
-- **Desktop app**
-
-  Run `yarn client:dev` in the project directory.
-
-  In another terminal run `yarn client`.
-  - Mac users will also have to forward traffic from port 8443 to 443 to get around a security restriction (see note below)
-
-> Note: First time running these will take longer than usual.
-
-For more commands see [COMMANDS.md](COMMANDS.md).
-
-### Translations
-
-Translations are done by the community. If you want to participate, feel free to join at https://poeditor.com/join/project/B4nWT6EgnD.
-
-### Notes for Mac Users
-
-Listening on port 443 (the default port for https) requires root privileges, but we want to keep root usage to a minimum.
-
-For this reason, the webserver listens on port 8443 instead, and then in a separate rooted process we can forward traffic from port 443 to port 8443.
-
-There are plenty of ways to do that, personally I like using [socat](https://www.redhat.com/sysadmin/getting-started-socat):
-
-- Install using `brew install socat`
-- Run the following while developing:
-  ```
-  sudo socat tcp4-listen:443,bind=127.0.0.1,reuseaddr,fork tcp:127.0.0.1:8443
-  ```
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/gamejolt/gamejolt)。
